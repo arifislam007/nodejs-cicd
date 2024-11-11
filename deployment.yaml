@@ -16,7 +16,7 @@ spec:
       - name: nodejs-app
         image: arifislam/nodejs-cicd:base  # The image you want to deploy
         ports:
-        - containerPort: 3000  # This should match the port your Node.js app listens on
+        - containerPort: 4000  # This should match the port your Node.js app listens on
 ---
 apiVersion: v1
 kind: Service
@@ -28,6 +28,6 @@ spec:
   ports:
     - protocol: TCP
       port: 80  # This is the port the service exposes
-      targetPort: 3000  # This is the port your container listens to
+      targetPort: 4000  # This is the port your container listens to
       nodePort: 30107  # NodePort that exposes your service externally
   type: NodePort
