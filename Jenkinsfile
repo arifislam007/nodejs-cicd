@@ -13,7 +13,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t nodejs-cicd-1:${BUILD_NUMBER} .'
+                    sh 'docker build -t arifislam/nodejs-cicd-1:${BUILD_NUMBER} .'
                 }
             }
         }
