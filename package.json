@@ -4,9 +4,17 @@
   "description": "A simple Node.js HTTP server that responds with 'Hello World'",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha",
+    "build": "echo \"No build step needed\" && exit 0"
   },
   "author": "Your Name",
   "license": "ISC",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^10.0.0"
+  }
 }
+
