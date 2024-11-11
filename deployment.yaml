@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodejs-app
+  name: nodejs-app-1
 spec:
   replicas: 1  # Adjust the number of replicas based on your need
   selector:
     matchLabels:
-      app: nodejs-app
+      app: nodejs-app-1
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: nodejs-app-1
     spec:
       containers:
-      - name: nodejs-app
+      - name: nodejs-app-1
         image: arifislam/nodejs-cicd:base  # The image you want to deploy
         ports:
         - containerPort: 4000  # This should match the port your Node.js app listens on
@@ -21,13 +21,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejs-app-service
+  name: nodejs-app-service-1
 spec:
   selector:
-    app: nodejs-app
+    app: nodejs-app-1
   ports:
     - protocol: TCP
       port: 80  # This is the port the service exposes
       targetPort: 4000  # This is the port your container listens to
-      nodePort: 30107  # NodePort that exposes your service externally
   type: NodePort
