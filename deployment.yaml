@@ -29,5 +29,5 @@ spec:
     - protocol: TCP
       port: 80  # This is the port the service exposes
       targetPort: 3000  # This is the port your container listens to
-      nodePort: 30007  # NodePort that exposes your service externally
+      nodePort: 30107  # NodePort that exposes your service externally
   type: NodePort
