@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nodejs-app
-        image: nodejs-cicd:base  # The image you want to deploy
+        image: arifislam/nodejs-cicd:base  # The image you want to deploy
         ports:
         - containerPort: 3000  # This should match the port your Node.js app listens on
 ---
