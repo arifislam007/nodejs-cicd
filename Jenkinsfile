@@ -21,7 +21,6 @@ pipeline {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'Docker-cred') {
-                        sh "docker build -t arifislam/nodejs-cicd:${BUILD_NUMBER} ."
                         sh "docker push arifislam/nodejs-cicd:${BUILD_NUMBER}"
                     }
                 }
