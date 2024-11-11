@@ -13,7 +13,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t nodejs-cicd:${BUILD_NUMBER} .'
+                    sh 'docker build -t nodejs-cicd-1:${BUILD_NUMBER} .'
                 }
             }
         }
@@ -21,14 +21,14 @@ pipeline {
             steps {
                 script{
                     withDockerRegistry(credentialsId: 'Docker-cred') {
-                        sh "docker push arifislam/nodejs-cicd:${BUILD_NUMBER}"
+                        sh "docker push arifislam/nodejs-cicd-1:${BUILD_NUMBER}"
                     }
                 }
             }
         }
         stage('Update Deployment File Image Tag') {
             steps {
-                sh "sed -i 's/nodejs-cicd:base/nodejs-cicd:${BUILD_NUMBER}/' ./deployment.yaml"
+                sh "sed -i 's/nodejs-cicd:base/nodejs-cicd-1:${BUILD_NUMBER}/' ./deployment.yaml"
             }
         }
         stage('Deploy with Kubectl') {
